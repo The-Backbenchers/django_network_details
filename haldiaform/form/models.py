@@ -36,4 +36,3 @@ class model_form_single(models.Model):
 
     def __str__(self):
         return self.phone_no
-    
