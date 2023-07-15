@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('HIDDEN_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['.vercel.app','127.0.0.1']
