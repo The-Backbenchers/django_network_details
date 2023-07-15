@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "haldiaform/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "haldiaform/wsgi.py"
+      }
+    ]
+}
