@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 bth=[
-    (1,"attached"),
-    (2,"common"),
+    ("attached","attached"),
+    ("common","common"),
 ]
 room_cat=[
     (1,"single"),
