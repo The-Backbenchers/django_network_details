@@ -2,4 +2,4 @@ Pipfile
 Pipfile.lock
 env
 .vercel
-.env
+# .env
