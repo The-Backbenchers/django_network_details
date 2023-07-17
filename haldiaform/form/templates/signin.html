@@ -8,7 +8,7 @@
                     <div class="col-lg-8">
                         <div class="form-area login-form">
                             <div class="form-content">
-                                <h2>Signup</h2>
+                                <h2>Login</h2>
                                 <p>Welcome to the Haldia House Rent Survey Login Page!</p> 
                                 <p>To gather accurate and up-to-date information about house rents in Haldia, we kindly request you to provide your login credentials below. 
 
@@ -19,22 +19,21 @@
                                 </ul>
                             </div>
                             <div class="form-input">
-                                <h2>Signup Form</h2>
+                                <h2>Login Form</h2>
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     {% for field in form %}
                                         <div class="form-group">
                                             <input type="text"  id="" name={{ field.name }} required>
                                             <label>{{ field.label }}</label>
-                                            {% for error in field.errors %}
-                                                <small style="color: red">{{ error }}</small>
-                                            {% endfor %}
                                         </div>
                                     {% endfor %}
+                                    
                                     <div class="myform-button">
-                                        <button class="myform-btn">Register</button>
+                                        <button class="myform-btn">Login</button>
                                     </div>
                                 </form>
+                                <p>Don't have an account? <a href="{% url 'Signup' %}">Signup here</a></p>
                             </div>
                         </div>
                     </div>
