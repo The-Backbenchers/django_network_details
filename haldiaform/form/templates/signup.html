@@ -8,7 +8,7 @@
                     <div class="col-lg-8">
                         <div class="form-area login-form">
                             <div class="form-content">
-                                <h2>Login</h2>
+                                <h2>Signup</h2>
                                 <p>Welcome to the Haldia House Rent Survey Login Page!</p> 
                                 <p>To gather accurate and up-to-date information about house rents in Haldia, we kindly request you to provide your login credentials below. 
 
@@ -19,30 +19,20 @@
                                 </ul>
                             </div>
                             <div class="form-input">
-                                <h2>Login Form</h2>
-                                <form>
-                                    <div class="form-group">
-                                        <input type="text"  id="" name="Email" required>
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text"  id="" name="First name" required>
-                                        <label>First Name</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text"  id="" name="Last name" required>
-                                        <label>Last Name</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" id="" name="password1" required>
-                                        <label>password1</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" id="" name="password2" required>
-                                        <label>password2</label>
-                                    </div>
+                                <h2>Signup Form</h2>
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                        <div class="form-group">
+                                            <input type="text"  id="" name={{ field.name }} required>
+                                            <label>{{ field.label }}</label>
+                                            {% for error in field.errors %}
+                                                <small style="color: red">{{ error }}</small>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
                                     <div class="myform-button">
-                                        <button class="myform-btn">Login</button>
+                                        <button class="myform-btn">Register</button>
                                     </div>
                                 </form>
                             </div>
