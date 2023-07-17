@@ -19,17 +19,20 @@
                                 </ul>
                             </div>
                             <div class="form-input">
-                                <h2>Login Form</h2>
+                                <h2>Signup Form</h2>
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     {% for field in form %}
                                         <div class="form-group">
                                             <input type="text"  id="" name={{ field.name }} required>
                                             <label>{{ field.label }}</label>
+                                            {% for error in field.errors %}
+                                                <small style="color: red">{{ error }}</small>
+                                            {% endfor %}
                                         </div>
                                     {% endfor %}
                                     <div class="myform-button">
-                                        <button class="myform-btn">Login</button>
+                                        <button class="myform-btn">Register</button>
                                     </div>
                                 </form>
                             </div>

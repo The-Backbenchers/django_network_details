@@ -14,7 +14,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Your account has been created. You can log in now!')    
-            return redirect('Signin')
+            return redirect('login')
         else:
             messages.error(request, f'There is some problem') 
     else:
