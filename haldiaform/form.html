@@ -1,0 +1,33 @@
+<section class="container my-2 bg-dark w-50 text-light p-2">
+  <form class="row g-3 p-3" method="post"  action="" enctype="multipart/form-data">
+   {% csrf_token %}
+      
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" name="cont_num" id="inputAddress2" placeholder="123456">
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">No.of Single Rooms</label>
+        <input type="text" class="form-control" name="crop_name" id="inputAddress2" placeholder="Turmeric">
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Single Room Price</label>
+        <input type="text" class="form-control" name="crop_variety" id="inputAddress2" placeholder="Allepy">
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Electric Bill</label>
+        <input type="text" class="form-control" name="crop_variety" id="inputAddress2" placeholder="Allepy">
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Bathroom</label>
+        <input type="text" class="form-control" name="crop_variety" id="inputAddress2" placeholder="Allepy">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="customFile">Single Room Photo</label>
+      <input type="file" class="form-control" name="file" id="customFile">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+ </section>
