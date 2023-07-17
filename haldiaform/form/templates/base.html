@@ -2,62 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link href="{% static 'css/style2.css' %}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Haldia Admin Form</title>
+    {% comment %} <title>Home-halid-form-admin</title> {% endcomment %}
 </head>
 <body>
-    <section class="myform-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="form-area login-form">
-                        <div class="form-content">
-                            <h2>Login</h2>
-                            <p>Welcome to the Haldia House Rent Survey Login Page!</p> 
-                            <p>To gather accurate and up-to-date information about house rents in Haldia, we kindly request you to provide your login credentials below. 
 
-                            <p>
-                            <ul>
-                                <!-- <li><a href="#" class="facebook"><i class="fa fa-facebook-f"></i><span>facebook</span></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a></li> -->
-                            </ul>
-                        </div>
-                        <div class="form-input">
-                            <h2>Login Form</h2>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text"  id="" name="Email" required>
-                                    <label>Email</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text"  id="" name="First name" required>
-                                    <label>First Name</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text"  id="" name="Last name" required>
-                                    <label>Last Name</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" id="" name="password1" required>
-                                    <label>password1</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" id="" name="password2" required>
-                                    <label>password2</label>
-                                </div>
-                                <div class="myform-button">
-                                    <button class="myform-btn">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    {% block mymessage %}
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="/">Encore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="">Products</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="">Blog</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="">Contact</a>
+                </li>
+            </ul>
             </div>
-        </div>
-    </section>
+        </nav>
+
+    {% endblock %}
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -65,10 +41,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+   
+    
     
 </body>
 </html>
