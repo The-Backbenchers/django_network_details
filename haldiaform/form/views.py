@@ -7,3 +7,6 @@ from django.http import HttpResponse
 def home(request):
     # return HttpResponse("Hello World")
     return render(request,'base.html')
+def signin(request):
+    # return HttpResponse("Hello World")
+    return render(request,'signin.html')
