@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<div class="container-fluid py-3">
+    <header class="text-center">
+        <strong class="display-6">Welcome to Customers page</strong>
+    </header>
+</div>
+<section class="container my-2 bg-dark w-50 text-light p-2">
+ <form class="row g-3 p-3" method="post" action="/customertable">
+    {% csrf_token %}
+     <div class="col-md-4">
+         <label for="validationDefault01" class="form-label">First name</label>
+         <input type="text" class="form-control" name="fname" id="validationDefault01" placeholder="Padmini" required>
+       </div>
+       <div class="col-md-4">
+         <label for="validationDefault02" class="form-label">Last name</label>
+         <input type="text" class="form-control" name="lname" id="validationDefault02" placeholder="Sampath" required>
+       </div>
+       <div class="col-md-4">
+         <label for="validationDefaultUsername" class="form-label">Username</label>
+         <div class="input-group">
+           <span class="input-group-text" id="inputGroupPrepend2">@</span>
+           <input type="text" class="form-control" name="username" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" >
+         </div>
+       </div>
+     <div class="col-md-6">
+       <label for="inputEmail4" class="form-label">Contact</label>
+       <input type="text" class="form-control" name="contact" id="inputEmail4">
+     </div>
+     <div class="col-md-4">
+        <label for="inputState" class="form-label">Customer Type</label>
+        <select id="inputState" class="form-select" name="customertype">
+          <option selected>Farmer</option>
+          <option>Broker</option>
+          <option>Farm Owner</option>
+        </select>
+    </div>
+     <div class="col-12">
+       <label for="inputAddress" class="form-label">Address Line 1</label>
+       <input type="text" class="form-control"  name="adr1" id="inputAddress" placeholder="1234 Main St">
+     </div>
+     <div class="col-12">
+       <label for="inputAddress2" class="form-label">Address Line 2</label>
+       <input type="text" class="form-control" name="adr2" id="inputAddress2" placeholder="Apartment, studio, or floor">
+     </div>
+     <div class="col-md-6">
+       <label for="inputCity" class="form-label">City</label>
+       <input type="text" class="form-control" name="city" id="inputCity">
+     </div>
+     <div class="col-md-4">
+       <label for="inputState" class="form-label">State</label>
+       <select id="inputState" class="form-select" name="state">
+         <option selected>Tamilnadu</option>
+         <option>Hyderabad</option>
+       </select>
+     </div>
+     <div class="col-md-2">
+       <label for="inputZip" class="form-label">Zip</label>
+       <input type="text" class="form-control" name="zip" id="inputZip">
+     </div>
+     <!-- <div class="col-12">
+       <div class="form-check">
+         <input class="form-check-input" type="checkbox" id="gridCheck">
+         <label class="form-check-label" for="gridCheck">
+           Check me out
+         </label>
+       </div>
+     </div> -->
+     <div class="col-md-4">
+      <label for="inputZip" class="form-label">Registration Date</label>
+      <input type="date" class="form-control" name="regdate" id="inputZip">
+    </div>
+     <div class="col-12">
+       <button type="submit" class="btn btn-primary">Submit</button>
+     </div>
+   </form>
+</section>
+{% endblock body  %}
