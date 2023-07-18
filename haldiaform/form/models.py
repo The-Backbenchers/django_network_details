@@ -15,6 +15,9 @@ class owner_details(models.Model):
     address=models.CharField(max_length=200)
     total_rooms=models.IntegerField()
 
+    def __str__(self):
+        return self.owner_name
+
 class model_form_shared(models.Model):
     phone_no=models.CharField(max_length=10)
     no_shared_rooms=models.IntegerField()
