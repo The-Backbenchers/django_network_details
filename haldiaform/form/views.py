@@ -26,3 +26,8 @@ def signup(request):
 def signin(request):
     # return HttpResponse("Hello World")
     return render(request,'signin.html')
+
+def network_reg(request):
+    return render(request,'network_reg.html')
+def owner_reg(request):
+    return render(request,'owner_reg.html')
