@@ -52,15 +52,30 @@
   <div>
   </div>
 </nav>
-<div>
-  {% for home in room_list %}
-      {{ home.owner.owner_name }}
 
-  {% endfor %}
+{% block body %} 
 
-</div>
+      <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for room in room_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ room.owner.address }}</h2>
+                        <p class="card-text text-muted h6">{{ room.owner.owner_name }} | {{ room.created_on}} </p>
+                        <p class="card-text">{{ room.room_price }}</p>
+                        <p class="card-text">{{ room.phone_no|slice:":5" }}</p>
+                        <a href="{% url 'room_detail' room.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
+        </div>
+      </div>
 
-{% block body %} {% endblock body %}
+{% endblock body %}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

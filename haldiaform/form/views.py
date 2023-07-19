@@ -37,6 +37,33 @@ def signin(request):
     return render(request,'signin.html')
 
 def network_reg(request):
-    return render(request,'network_reg.html')
+    if request.method=='POST':
+        form=room_form(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your account has been created. You can log in now!')    
+            return redirect('network_registration')
+        else:
+            messages.error(request, f'There is some problem') 
+    else:
+        form=room_form()
+
+    context={'form':form}
+
+    return render(request,'network_reg.html',context)
 def owner_reg(request):
-    return render(request,'owner_reg.html')
+
+    if request.method=='POST':
+        form=owner_form(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your account has been created. You can log in now!')    
+            return redirect('owner_registration')
+        else:
+            messages.error(request, f'There is some problem') 
+    else:
+        form=owner_form()
+
+    context={'form':form}
+
+    return render(request,'owner_reg.html',context)

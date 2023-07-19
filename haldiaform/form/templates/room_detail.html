@@ -1,7 +1,20 @@
-<div>
-    {% for home in room_list %}
-        {{ home.owner.owner_name }}
-  
-    {% endfor %}
-  
-  </div>
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 left  top">
+            <div class="card-body">
+            <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+            <p class=" text-muted">{{ object.owner.owner_name }} | {{ object.created_on }}</p>
+            <p class="card-text ">{{ object.phone_no | safe }}</p>
+            <p class="card-text ">{{ object.no_of_rooms | safe }}</p>
+            <p class="card-text ">{{ object.room_price | safe }}</p>
+            <p class="card-text ">{{ object.single | safe }}</p>
+            <p class="card-text ">{{ object.electric_bill | safe }}</p>
+            <p class="card-text ">{{ object.bathroom | safe }}</p>
+            
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock body %}
