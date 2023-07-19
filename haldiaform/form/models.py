@@ -40,7 +40,12 @@ class Room(models.Model):
     class Meta:
         ordering = ['-created_on']
     def __str__(self):
-        return self.phone_no
+        return self.owner.phone_no
+    
+class room_images(models.Model):
+    room=models.ForeignKey(Room,on_delete=models.CASCADE,blank=False)
+    images = models.ImageField()
+
     
 # class model_form_single(models.Model):
 #     phone_no=models.CharField(max_length=10)
