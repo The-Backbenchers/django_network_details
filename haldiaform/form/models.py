@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify 
 # Create your models here.
 bth=[
     ("attached","attached"),
@@ -21,6 +21,7 @@ class owner_details(models.Model):
 class Room(models.Model):
     owner=models.ForeignKey(owner_details,on_delete=models.CASCADE,blank=False)
     # phone_no=models.CharField(max_length=10)
+    building_no = models.IntegerField(default=0)
     pincode=models.CharField(max_length=6,default="721657")
     locality=models.CharField(max_length=70,default="Ksudiramnager")
     address = models.TextField(max_length=100,default="Ksudiramnager")
@@ -30,15 +31,21 @@ class Room(models.Model):
     no_of_shared_room=models.IntegerField(default=0)
     price_of_single_room=models.IntegerField(default=0)
     price_of_double_room=models.IntegerField(default=0)
-    electric_bill=models.IntegerField()
-    no_of_bathrooms=models.IntegerField()
-    bathroom=models.CharField(choices=bth,max_length=100)
-    no_of_bathrooms = models.IntegerField()
+    electric_bill=models.IntegerField(default=10)
+    no_of_bathrooms=models.IntegerField(default=0)
+    bathroom=models.CharField(choices=bth,max_length=100,default=1)
+    no_of_bathrooms = models.IntegerField(default=0)
     # shared_room_pictures=models.FileField(null=True,blank=True)
-    slug = models.SlugField(max_length=200, unique=True,default=None)
+    slug = models.SlugField(unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         ordering = ['-created_on']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.building_no)
+        super(Room, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.owner.phone_no
     

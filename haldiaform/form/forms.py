@@ -47,6 +47,7 @@ class room_form(forms.ModelForm):
 
 		model = Room
 		fields = "__all__"
+		exclude = ["slug"]
 
 class image_form(forms.ModelForm):
 	images=MultipleFileField()
