@@ -8,7 +8,7 @@
     </header>
 </div>
 <section class="container my-2 bg-dark w-50 text-light p-2">
- <form class="row g-3 p-3" method="post" action="/customertable">
+ <form class="row g-3 p-3" method="post" enctype="multipart/form-data" action="">
     {% csrf_token %}
     {% comment %} {% for field in form %}
       <div class="col-md-6">
@@ -20,6 +20,10 @@
       </div>
     {% endfor %} {% endcomment %}
     {{form|crispy}}
+    {{i_form.management_form}}
+    {% for field in i_form %}
+      {{field}}
+    {% endfor %}
 
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Submit</button>

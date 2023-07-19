@@ -5,6 +5,7 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.views import generic 
+from django.forms import modelformset_factory
 # Create your views here.
 class RoomList(generic.ListView):
     # return HttpResponse("Hello World")
@@ -37,18 +38,26 @@ def signin(request):
     return render(request,'signin.html')
 
 def network_reg(request):
+    # ImageFormSet = modelformset_factory(room_images,form=image_form, extra=3)
     if request.method=='POST':
         form=room_form(request.POST)
-        if form.is_valid():
-            form.save()
+        files=image_form(request.POST,request.FILES)
+        if form.is_valid() and files.is_valid():
+            f=form.save()
+            images = request.FILES.getlist('images')
+            for i in images:
+                room_images.objects.create(room=f,images=i)
+
             messages.success(request, f'Your account has been created. You can log in now!')    
             return redirect('network_registration')
         else:
             messages.error(request, f'There is some problem') 
     else:
         form=room_form()
+        files = image_form()
 
-    context={'form':form}
+    context={'form':form,
+            'i_form':files}
 
     return render(request,'network_reg.html',context)
 def owner_reg(request):
@@ -58,7 +67,7 @@ def owner_reg(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Your account has been created. You can log in now!')    
-            return redirect('owner_registration')
+            return redirect('network_registration')
         else:
             messages.error(request, f'There is some problem') 
     else:
