@@ -27,7 +27,7 @@ class Room(models.Model):
     electric_bill=models.IntegerField()
     bathroom=models.CharField(choices=bth,max_length=100)
     no_of_bathrooms = models.IntegerField()
-    shared_room_pictures=models.FileField()
+    # shared_room_pictures=models.FileField(null=True,blank=True)
     slug = models.SlugField(max_length=200, unique=True,default=None)
     created_on = models.DateTimeField(auto_now_add=True)
     class Meta:
