@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'form',
     'crispy_forms',
     'crispy_bootstrap4',
+    'storages',
     
 ]
 
@@ -146,3 +147,18 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'Home'
+
+DEFAULT_FILE_STORAGE = 'haldiaform.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'haldiaform.custom_azure.AzureStaticStorage'
+# STORAGES = {
+#     "default": {"BACKEND": "haldiaform.custom_azure.AzureMediaStorage"},
+#     "staticfiles": {"BACKEND": "haldiaform.custom_azure.AzureStaticStorage"},
+# }
+
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
+
+AZURE_ACCOUNT_NAME = "djangoaccountstorage"
+AZURE_CUSTOM_DOMAIN = f'aasif112.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
