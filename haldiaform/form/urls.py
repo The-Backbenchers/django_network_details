@@ -14,6 +14,7 @@ urlpatterns = [
     path('network', views.network_reg, name='network_registration'),
     path('owner', views.owner_reg, name='owner_registration'),
     path('<slug:slug>/', views.RoomDetail.as_view(), name='room_detail'),
+    path('home2', views.newHome, name="newhome" ),
     # path('signin', views.signin, name="Signin" ),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

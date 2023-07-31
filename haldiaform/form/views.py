@@ -7,6 +7,10 @@ from django.contrib.auth import login, authenticate
 from django.views import generic 
 from django.forms import modelformset_factory
 # Create your views here.
+def newHome(request):
+    return render(request,'index.html')
+
+
 class RoomList(generic.ListView):
     # return HttpResponse("Hello World")
     queryset = Room.objects.order_by('-created_on')
