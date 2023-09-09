@@ -1,5 +1,10 @@
 from django.db import models
 from django.utils.text import slugify 
+from django.utils.safestring import mark_safe 
+from PIL import Image as Im
+# from sorl.thumbnail import ImageField, get_thumbnail
+from django.core.files.storage import default_storage as storage
+
 # Create your models here.
 bth=[
     ("attached","attached"),
@@ -51,16 +56,8 @@ class Room(models.Model):
     
 class room_images(models.Model):
     room=models.ForeignKey(Room,on_delete=models.CASCADE,blank=False)
-    images = models.ImageField()
+    images = models.ImageField(upload_to='pics')
 
+    def img_tag(self):
+        return mark_safe('<img src="https://aasif112.blob.core.windows.net/media/%s" width="150" height="150" />' % (self.images))
     
-# class model_form_single(models.Model):
-#     phone_no=models.CharField(max_length=10)
-#     no_single_rooms=models.IntegerField()
-#     single_room_price = models.IntegerField()
-#     electric_bill=models.IntegerField()
-#     bathroom=models.CharField(choices=bth,max_length=100)
-#     single_room_pictures=models.FileField()
-
-#     def __str__(self):
-#         return self.phone_no

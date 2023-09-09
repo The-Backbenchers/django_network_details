@@ -6,7 +6,12 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.views import generic 
 from django.forms import modelformset_factory
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+def newHome(request):
+    return render(request,'index.html')
+
+
 class RoomList(generic.ListView):
     # return HttpResponse("Hello World")
     queryset = Room.objects.order_by('-created_on')
@@ -37,6 +42,7 @@ def signin(request):
     # return HttpResponse("Hello World")
     return render(request,'signin.html')
 
+@login_required(login_url='login')
 def network_reg(request):
     # ImageFormSet = modelformset_factory(room_images,form=image_form, extra=3)
     if request.method=='POST':
@@ -60,6 +66,9 @@ def network_reg(request):
             'i_form':files}
 
     return render(request,'network_reg.html',context)
+
+
+@login_required(login_url='login')
 def owner_reg(request):
 
     if request.method=='POST':
