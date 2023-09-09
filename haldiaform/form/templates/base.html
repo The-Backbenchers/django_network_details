@@ -236,12 +236,18 @@
       {% for room in room_list %}
       <div class="col">
         <div class="card">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+
+          {% for img in room.room_images_set.all %}
+            {% if forloop.first %}
+            <img src="{{ img.images.url }}" height="400" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+            {%endif%}
+          {% endfor %}
           <div class="card-body">
             <h5 class="card-title">{{ room.owner.address }}</h5>
             <p class="card-text">
               {{ room.owner.owner_name }} | {{ room.created_on}}
             </p>
+            
             <p class="card-text">{{ room.room_price }}</p>
             <a href="{% url 'room_detail' room.slug  %}" class="btn btn-primary">Read More</a>
           </div>
